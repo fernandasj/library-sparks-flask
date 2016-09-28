@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Reservar Livro{% endblock %}
+
+{% block content %}
+ <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Reservar Livro</h3>
+    </div>
+
+    <form class="form-library" method="POST" action="{{ url_for('reservar_livro') }}">
+
+        <label for="Id_usuario" class="sr-only">Usuário</label>
+        <select class="form-control" id="checkboxWarning" name="Id_usuario" type="text" placeholder="Usuário" required autofocus>
+            {% for usuario in usuarios %}
+                <option value={{ usuario.id_usuario }}>{{ usuario.username }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="Id_livro" class="sr-only">Livro</label>
+        <select class="form-control" id="checkboxWarning" name="Id_livro" type="text" placeholder="Livro desejado" required autofocus>
+            {% for livro in livros %}
+                <option value={{ livro.id_livro }}>{{ livro.titulo }}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-success btn-block" type="submit">Reservar</button>
+
+    </form>
+</div>
+{% endblock %}

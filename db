@@ -1,0 +1,11 @@
+﻿create table Livro(
+id integer,
+titulo varchar(100),
+autor varchar (100),
+local_edicao varchar (10),
+editora varchar(100),
+data_edicao date,
+status varchar (100),
+primary key(id)
+);
+

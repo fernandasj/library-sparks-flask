@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Minhas Reservas{% endblock %}
+
+{% block content %}
+
+<div class="panel-body">
+ <div class="panel panel-success">
+   <div class="panel-heading">
+    <h3 class="panel-title">Emprestimos</h3>
+  </div>
+  {% if emprestimos %}
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>USUARIO</th>
+          <th>LIVRO</th>
+          <th>DATA DE EMPRÉSTIMO</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for emprestimo in emprestimos %}
+        <tr>
+          <td>{{ emprestimo.id_usuario }}</td>
+          <td>{{ emprestimo.id_livro }}</td>
+          <td>{{ emprestimo.data_emprestimo }}</td>
+          <td> {{ emprestimo.status_emprestimo }}</td>
+          <td><a class="btn btn-success btn-xs" href="/devolver_livro/{{ emprestimo.id_emprestimo }}">Devolver</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <h4>O sistema não possui empréstimos ativos no momento.</h4>
+  {% endif %}
+</div>
+</div>
+
+<div class="panel-body">
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Reservas</h3>
+  </div>
+  {% if reservas %}
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>LIVRO</th>
+          <th>USUARIO</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reserva in reservas %}
+        <tr>
+          <td>{{ reserva.id_livro }}</td>
+          <td>{{ reserva.id_usuario }}</td>
+          <td><a class="btn btn-danger btn-xs" href="/cancelar_reserva/{{ reserva.id_reserva }}">Cancelar Reserva</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <h4>O sistema não possui reservas ativas no momento.</h4>
+  {% endif %}
+</div>
+</div>
+
+
+{% endblock %}

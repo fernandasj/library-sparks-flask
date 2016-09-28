@@ -1,0 +1,48 @@
+body {
+  padding-top: 10rem;
+}
+
+.navbar .navbar-toggle {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.navbar .navbar-toggle:hover {
+  color: #18BC9C;
+}
+
+
+.form-library {
+  max-width: 50rem;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-library .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1rem;
+  font-size: 1.6rem;
+}
+
+.form-library .form-control:focus {
+  z-index: 2;
+}
+
+.form-library select[type="text"] {
+  margin-bottom: 1rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-library input[type="date"] {
+  margin-bottom: 1rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}

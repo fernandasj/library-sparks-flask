@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Emprestar Livro{% endblock %}
+
+{% block content %}
+ <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Emprestar Livro</h3>
+    </div>
+
+    <form class="form-library" method="POST" action="{{ url_for('emprestar_livro') }}">
+
+        <label for="Id_usuario" class="sr-only">Usuário</label>
+        <select class="form-control" name="Id_usuario" type="text" placeholder="Usuário" required autofocus>
+            {% for usuario in usuarios %}
+                <option value={{ usuario.id_usuario }}>{{ usuario.username }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="Id_livro" class="sr-only">Livro</label>
+        <select class="form-control" name="Id_livro" type="text" placeholder="Livro desejado" required autofocus>
+            {% for livro in livros %}
+                <option value={{ livro.id_livro }}>{{ livro.titulo }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="Data_emprestimo" class="sr-only">Data</label>
+        <input type="date" class="form-control" name="Data_emprestimo">
+
+        <button class="btn btn-success btn-block" type="submit">Emprestar</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.getElementById('date').valueAsDate = new Date();
+</script>
+{% endblock %}
